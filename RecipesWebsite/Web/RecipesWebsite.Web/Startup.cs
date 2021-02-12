@@ -1,7 +1,7 @@
 ﻿namespace RecipesWebsite.Web
 {
     using System.Reflection;
-
+    using AutoMapper;
     using RecipesWebsite.Data;
     using RecipesWebsite.Data.Common;
     using RecipesWebsite.Data.Common.Repositories;
@@ -20,6 +20,7 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Services.Data;
 
     public class Startup
     {
@@ -52,6 +53,7 @@
                         options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
                     }).AddRazorRuntimeCompilation();
             services.AddRazorPages();
+            services.AddAutoMapper(typeof(Startup));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddSingleton(this.configuration);
@@ -63,6 +65,9 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
+            services.AddTransient<IGetCountsService, GetCountsService>();
+            services.AddTransient<ICategoriesService, CategoriesService>();
+            services.AddTransient<IRecipesService, RecipesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -31,4 +31,8 @@
     <ProjectReference Include="..\..\Web\RecipesWebsite.Web\RecipesWebsite.Web.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Recipes\" />
+  </ItemGroup>
+
 </Project>
