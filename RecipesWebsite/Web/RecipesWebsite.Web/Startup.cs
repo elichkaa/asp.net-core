@@ -8,7 +8,6 @@
     using RecipesWebsite.Data.Models;
     using RecipesWebsite.Data.Repositories;
     using RecipesWebsite.Data.Seeding;
-    using RecipesWebsite.Services.Data;
     using RecipesWebsite.Services.Mapping;
     using RecipesWebsite.Services.Messaging;
     using RecipesWebsite.Web.ViewModels;
@@ -64,7 +63,6 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<ISettingsService, SettingsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
